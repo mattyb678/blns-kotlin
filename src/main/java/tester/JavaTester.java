@@ -14,5 +14,6 @@ public class JavaTester {
         System.out.println(NaughtyStrings.Emoji.People.all());
         System.out.println(NaughtyStrings.Emoji.Digits.all());
         System.out.println(NaughtyStrings.Emoji.Signs.all());
+        System.out.println(NaughtyStrings.Emoticons.random());
     }
 }

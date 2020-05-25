@@ -191,6 +191,35 @@ class NaughtyStrings {
         fun random(): String = all.random()
     }
 
+    object Emoticons {
+        private val all = listOf(
+                "ヽ༼ຈل͜ຈ༽ﾉ ヽ༼ຈل͜ຈ༽ﾉ",
+                "(｡◕ ∀ ◕｡)",
+                "｀ｨ(´∀｀∩",
+                "__ﾛ(,_,*)",
+                "・(￣∀￣)・:*:",
+                "ﾟ･✿ヾ╲(｡◕‿◕｡)╱✿･ﾟ",
+                ",。・:*:・゜’( ☻ ω ☻ )。・:*:・゜’",
+                "(╯°□°）╯︵ ┻━┻)",
+                "(ﾉಥ益ಥ）ﾉ\uFEFF ┻━┻",
+                "┬─┬ノ( º _ ºノ)",
+                "( ͡° ͜ʖ ͡°)",
+                "¯\\_(ツ)_/¯"
+        )
+
+        @JvmStatic
+        fun all(): List<String> = all
+
+        @JvmStatic
+        fun take(num: Int): List<String> = all.take(num)
+
+        @JvmStatic
+        fun drop(num: Int): List<String> = all.drop(num)
+
+        @JvmStatic
+        fun random(): String = all.random()
+    }
+
     object Numeric {
         @JvmStatic
         fun all(): List<String> {
