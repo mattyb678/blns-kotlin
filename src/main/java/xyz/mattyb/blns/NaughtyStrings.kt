@@ -239,4 +239,101 @@ class NaughtyStrings {
         @JvmStatic
         fun drop(num: Int): List<String> = TODO("Not yet implemented")
     }
+
+    object Unicode {
+        object UpsideDown {
+            private val all = listOf(
+                    "op",
+                    "pǝs",
+                    "'ʇᴉlǝ",
+                    "ƃuᴉɔsᴉdᴉpɐ",
+                    "ɹnʇǝʇɔǝsuoɔ",
+                    "'ʇǝɯɐ",
+                    "ʇᴉs",
+                    "ɹolop",
+                    "ɯnsdᴉ",
+                    "ɯǝɹo˥",
+                    "00˙Ɩ\$-"
+            )
+
+            @JvmStatic
+            fun all(): List<String> = all
+
+            @JvmStatic
+            fun take(num: Int): List<String> = all.take(num)
+
+            @JvmStatic
+            fun drop(num: Int): List<String> = all.drop(num)
+
+            @JvmStatic
+            fun random(): String = all.random()
+        }
+
+        object Font {
+            object FullWidth {
+                private val all = listOf(
+                        "Ｔｈｅ",
+                        "ｑｕｉｃｋ",
+                        "ｂｒｏｗｎ",
+                        "ｆｏｘ",
+                        "ｊｕｍｐｓ",
+                        "ｏｖｅｒ",
+                        "ｔｈｅ",
+                        "ｌａｚｙ",
+                        "ｄｏｇ"
+                )
+
+                @JvmStatic
+                fun all(): List<String> = all
+
+                @JvmStatic
+                fun random(): String = all.random()
+
+                @JvmStatic
+                fun take(num: Int): List<String> = all.take(num)
+
+                @JvmStatic
+                fun drop(num: Int): List<String> = all.drop(num)
+            }
+
+            object Bold {
+                private val all = listOf(
+                        "\uD835\uDC13\uD835\uDC21\uD835\uDC1E",
+                        "\uD835\uDC2A\uD835\uDC2E\uD835\uDC22\uD835\uDC1C\uD835\uDC24",
+                        "\uD835\uDC1B\uD835\uDC2B\uD835\uDC28\uD835\uDC30\uD835\uDC27",
+                        "\uD835\uDC1F\uD835\uDC28\uD835\uDC31",
+                        "\uD835\uDC23\uD835\uDC2E\uD835\uDC26\uD835\uDC29\uD835\uDC2C",
+                        "\uD835\uDC28\uD835\uDC2F\uD835\uDC1E\uD835\uDC2B",
+                        "\uD835\uDC2D\uD835\uDC21\uD835\uDC1E",
+                        "\uD835\uDC25\uD835\uDC1A\uD835\uDC33\uD835\uDC32",
+                        "\uD835\uDC1D\uD835\uDC28\uD835\uDC20"
+                )
+
+                @JvmStatic
+                fun all(): List<String> = all
+
+                @JvmStatic
+                fun random(): String = all.random()
+
+                @JvmStatic
+                fun take(num: Int): List<String> = all.take(num)
+            }
+        }
+
+        private val all = listOf<String>()
+                .plus(UpsideDown.all())
+                .plus(Font.FullWidth.all())
+
+        @JvmStatic
+        fun all(): List<String> = all
+
+        @JvmStatic
+        fun take(num: Int): List<String> = all.take(num)
+
+        @JvmStatic
+        fun drop(num: Int): List<String> = all.drop(num)
+
+        @JvmStatic
+        fun random(): String = all.random()
+    }
 }
