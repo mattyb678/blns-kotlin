@@ -22,19 +22,16 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun all(): List<String> {
-                return all
-            }
+            fun all(): List<String> = all
 
             @JvmStatic
-            fun take(num: Int): List<String> {
-                return all.take(num)
-            }
+            fun take(num: Int): List<String> = all.take(num)
 
             @JvmStatic
-            fun random(): String {
-                return all.random()
-            }
+            fun drop(num: Int): List<String> = all.drop(num)
+
+            @JvmStatic
+            fun random(): String = all.random()
         }
         object Animals {
             object Monkeys {
@@ -44,18 +41,18 @@ class NaughtyStrings {
                         "\uD83D\uDE49",
                         "\uD83D\uDE4A"
                 )
+
                 @JvmStatic
-                fun all(): List<String> {
-                    return all
-                }
+                fun all(): List<String> = all
+
                 @JvmStatic
-                fun take(num: Int): List<String> {
-                    return all.take(num)
-                }
+                fun take(num: Int): List<String> = all.take(num)
+
                 @JvmStatic
-                fun random(): String {
-                    return all.random()
-                }
+                fun drop(num: Int): List<String> = all.drop(num)
+
+                @JvmStatic
+                fun random(): String = all.random()
             }
         }
         object Hearts {
@@ -78,19 +75,16 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun all(): List<String> {
-                return all
-            }
+            fun all(): List<String> = all
 
             @JvmStatic
-            fun take(num: Int): List<String> {
-                return all.take(num)
-            }
+            fun take(num: Int): List<String> = all.take(num)
 
             @JvmStatic
-            fun random(): String {
-                return all.random()
-            }
+            fun drop(num: Int): List<String> = all.drop(num)
+
+            @JvmStatic
+            fun random(): String = all.random()
         }
         object People {
             private val all = listOf(
@@ -117,19 +111,16 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun all(): List<String> {
-                return all
-            }
+            fun all(): List<String> = all
 
             @JvmStatic
-            fun take(num: Int): List<String> {
-                return all.take(num)
-            }
+            fun take(num: Int): List<String> = all.take(num)
 
             @JvmStatic
-            fun random(): String {
-                return all.random()
-            }
+            fun drop(num: Int): List<String> = all.drop(num)
+
+            @JvmStatic
+            fun random(): String = all.random()
         }
         object Digits {
             private val all = listOf(
@@ -147,19 +138,13 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun all(): List<String> {
-                return all
-            }
+            fun all(): List<String> = all
 
             @JvmStatic
-            fun take(num: Int): List<String> {
-                return all.take(num)
-            }
+            fun take(num: Int): List<String> = all.take(num)
 
             @JvmStatic
-            fun random(): String {
-                return all.random()
-            }
+            fun random(): String = all.random()
         }
         object Signs {
             private val all = listOf(
@@ -172,20 +157,18 @@ class NaughtyStrings {
                     "\uD83C\uDD99",
                     "\uD83C\uDFE7"
             )
-            @JvmStatic
-            fun all(): List<String> {
-                return all
-            }
 
             @JvmStatic
-            fun take(num: Int): List<String> {
-                return all.take(num)
-            }
+            fun all(): List<String> = all
 
             @JvmStatic
-            fun random(): String {
-                return all.random()
-            }
+            fun take(num: Int): List<String> = all.take(num)
+
+            @JvmStatic
+            fun drop(num: Int): List<String> = all.drop(num)
+
+            @JvmStatic
+            fun random(): String = all.random()
         }
         private val all = listOf<String>().asSequence()
                 .plus(Animals.Monkeys.all())
@@ -196,19 +179,16 @@ class NaughtyStrings {
                 .toList()
 
         @JvmStatic
-        fun take(num: Int): List<String> {
-            return all.take(num)
-        }
+        fun take(num: Int): List<String> = all.take(num)
 
         @JvmStatic
-        fun all(): List<String> {
-            return all
-        }
+        fun drop(num: Int): List<String> = all.drop(num)
 
         @JvmStatic
-        fun random(): String {
-            return all.random()
-        }
+        fun all(): List<String> = all
+
+        @JvmStatic
+        fun random(): String = all.random()
     }
 
     object Numeric {
@@ -226,9 +206,8 @@ class NaughtyStrings {
         fun random(): String {
             TODO("Not yet implemented")
         }
-    }
-}
 
-fun main() {
-    println(NaughtyStrings.Emoji.Animals.Monkeys.random())
+        @JvmStatic
+        fun drop(num: Int): List<String> = TODO("Not yet implemented")
+    }
 }

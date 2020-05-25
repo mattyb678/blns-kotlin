@@ -5,6 +5,8 @@ import xyz.mattyb.blns.NaughtyStrings;
 public class JavaTester {
     public static void main(String[] args) {
         System.out.println(NaughtyStrings.Emoji.all());
+        System.out.println(NaughtyStrings.Emoji.drop(15));
+        System.out.println(NaughtyStrings.Emoji.take(3));
         System.out.println(NaughtyStrings.Emoji.random());
         System.out.println(NaughtyStrings.Emoji.Animals.Monkeys.all());
         System.out.println(NaughtyStrings.Emoji.Hearts.all());
