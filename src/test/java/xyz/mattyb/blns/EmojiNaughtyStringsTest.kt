@@ -3,7 +3,7 @@ package xyz.mattyb.blns
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-internal class EmojiNaughtyStringsTest {
+class EmojiNaughtyStringsTest {
 
     @Test
     fun testHasHearts() {
