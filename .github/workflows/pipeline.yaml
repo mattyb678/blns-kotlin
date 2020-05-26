@@ -22,10 +22,12 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build
         run: mvn -B package
-      - name: Publish coverage
-        run: mvn -B jacoco:report coveralls:report
-        env:
-          COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
+      - name: Rnn coverage
+        run: mvn -B jacoco:report
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.COVERALLS_TOKEN }}
       - name: Publish package (snapshot)
         run: mvn -B deploy
         env:
