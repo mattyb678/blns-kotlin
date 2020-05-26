@@ -63,5 +63,29 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/mattyb678/blns-kotlin</url>
+        <connection>scm:git:git://github.com/mattyb678/blns-kotlin.git</connection>
+        <developerConnection>scm:git:git@github.com:mattyb678/blns-kotlin.git</developerConnection>
+    </scm>
 
 </project>
