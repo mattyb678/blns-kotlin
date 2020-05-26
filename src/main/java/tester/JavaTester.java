@@ -17,6 +17,7 @@ public class JavaTester {
         System.out.println(NaughtyStrings.Emoticons.random());
         System.out.println(NaughtyStrings.Unicode.UpsideDown.all());
         System.out.println(NaughtyStrings.Unicode.Font.FullWidth.all());
+        System.out.println(NaughtyStrings.Unicode.Font.FullWidth.joinToString(" "));
         System.out.println(NaughtyStrings.Unicode.Font.Bold.all());
     }
 }

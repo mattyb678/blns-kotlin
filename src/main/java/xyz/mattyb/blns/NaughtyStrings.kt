@@ -170,13 +170,12 @@ class NaughtyStrings {
             @JvmStatic
             fun random(): String = all.random()
         }
-        private val all = listOf<String>().asSequence()
+        private val all = listOf<String>()
                 .plus(Animals.Monkeys.all())
                 .plus(Hearts.all())
                 .plus(Smileys.all())
                 .plus(People.all())
                 .plus(Digits.all())
-                .toList()
 
         @JvmStatic
         fun take(num: Int): List<String> = all.take(num)
@@ -294,6 +293,10 @@ class NaughtyStrings {
 
                 @JvmStatic
                 fun drop(num: Int): List<String> = all.drop(num)
+
+                @JvmStatic
+                @JvmOverloads
+                fun joinToString(separator: CharSequence = ", "): String = all.joinToString(separator)
             }
 
             object Bold {
@@ -317,12 +320,17 @@ class NaughtyStrings {
 
                 @JvmStatic
                 fun take(num: Int): List<String> = all.take(num)
+
+                @JvmStatic
+                @JvmOverloads
+                fun joinToString(separator: CharSequence = ", "): String = all.joinToString(separator)
             }
         }
 
         private val all = listOf<String>()
                 .plus(UpsideDown.all())
                 .plus(Font.FullWidth.all())
+                .plus(Font.Bold.all())
 
         @JvmStatic
         fun all(): List<String> = all
