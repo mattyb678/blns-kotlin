@@ -28,7 +28,7 @@ class NaughtyStrings {
             fun take(num: Int): List<String> = all.take(num)
 
             @JvmStatic
-            fun drop(num: Int): List<String> = all.drop(num)
+            fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
 
             @JvmStatic
             fun random(): String = all.random()
@@ -81,7 +81,7 @@ class NaughtyStrings {
             fun take(num: Int): List<String> = all.take(num)
 
             @JvmStatic
-            fun drop(num: Int): List<String> = all.drop(num)
+            fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
 
             @JvmStatic
             fun random(): String = all.random()
@@ -117,7 +117,7 @@ class NaughtyStrings {
             fun take(num: Int): List<String> = all.take(num)
 
             @JvmStatic
-            fun drop(num: Int): List<String> = all.drop(num)
+            fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
 
             @JvmStatic
             fun random(): String = all.random()
@@ -165,7 +165,7 @@ class NaughtyStrings {
             fun take(num: Int): List<String> = all.take(num)
 
             @JvmStatic
-            fun drop(num: Int): List<String> = all.drop(num)
+            fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
 
             @JvmStatic
             fun random(): String = all.random()
@@ -181,7 +181,7 @@ class NaughtyStrings {
         fun take(num: Int): List<String> = all.take(num)
 
         @JvmStatic
-        fun drop(num: Int): List<String> = all.drop(num)
+        fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
 
         @JvmStatic
         fun all(): List<String> = all
@@ -213,7 +213,7 @@ class NaughtyStrings {
         fun take(num: Int): List<String> = all.take(num)
 
         @JvmStatic
-        fun drop(num: Int): List<String> = all.drop(num)
+        fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
 
         @JvmStatic
         fun random(): String = all.random()
@@ -236,7 +236,7 @@ class NaughtyStrings {
         }
 
         @JvmStatic
-        fun drop(num: Int): List<String> = TODO("Not yet implemented")
+        fun drop(num: Int): DroppedList<String> = TODO("Not yet implemented")
     }
 
     object Unicode {
@@ -262,7 +262,7 @@ class NaughtyStrings {
             fun take(num: Int): List<String> = all.take(num)
 
             @JvmStatic
-            fun drop(num: Int): List<String> = all.drop(num)
+            fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
 
             @JvmStatic
             fun random(): String = all.random()
@@ -292,7 +292,7 @@ class NaughtyStrings {
                 fun take(num: Int): List<String> = all.take(num)
 
                 @JvmStatic
-                fun drop(num: Int): List<String> = all.drop(num)
+                fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
 
                 @JvmStatic
                 @JvmOverloads
@@ -339,9 +339,21 @@ class NaughtyStrings {
         fun take(num: Int): List<String> = all.take(num)
 
         @JvmStatic
-        fun drop(num: Int): List<String> = all.drop(num)
+        fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
 
         @JvmStatic
         fun random(): String = all.random()
+    }
+
+    companion object {
+        private val all = listOf<String>()
+                .plus(Emoji.all())
+                .plus(Emoticons.all())
+                .plus(Unicode.all())
+        @JvmStatic
+        fun all(): List<String> = all
+
+        @JvmStatic
+        fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
     }
 }

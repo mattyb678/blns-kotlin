@@ -4,6 +4,9 @@ import xyz.mattyb.blns.NaughtyStrings;
 
 public class JavaTester {
     public static void main(String[] args) {
+        System.out.println(NaughtyStrings.all());
+        System.out.println(NaughtyStrings.drop(10).take(5));
+        System.out.println(NaughtyStrings.Emoji.drop(5).drop(5).drop(15).take(3));
         System.out.println(NaughtyStrings.Emoji.all());
         System.out.println(NaughtyStrings.Emoji.drop(15));
         System.out.println(NaughtyStrings.Emoji.take(3));
