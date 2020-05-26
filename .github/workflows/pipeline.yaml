@@ -20,6 +20,10 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
+      - name: Build
+        run: mvn -B package
+      - name: Publish coverage
+        run: mvn -B jacoco:report coveralls:report
       - name: Publish package (snapshot)
         run: mvn -B deploy
         env:
