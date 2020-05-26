@@ -23,11 +23,9 @@ jobs:
       - name: Build
         run: mvn -B package
       - name: Rnn coverage
-        run: mvn -B jacoco:report
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.COVERALLS_TOKEN }}
+        run: mvn -B jacoco:report coveralls:report
+        env:
+          COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
       - name: Publish package (snapshot)
         run: mvn -B deploy
         env:
