@@ -31,6 +31,9 @@ class NaughtyStrings {
             fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
 
             @JvmStatic
+            fun dropLast(num: Int): DroppedList<String> = DroppedList(all.dropLast(num))
+
+            @JvmStatic
             fun random(): String = all.random()
         }
         object Animals {

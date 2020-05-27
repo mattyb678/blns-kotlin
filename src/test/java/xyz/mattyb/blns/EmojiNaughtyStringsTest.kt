@@ -24,6 +24,9 @@ open class EmojiNaughtyStringsTest {
                 .containsExactly("\uD83D\uDE00", "\uD83D\uDE0D")
         assertThat(NaughtyStrings.Emoji.Smileys.drop(7).take(2))
                 .containsExactly("\uD83E\uDD10", "\uD83E\uDD28")
+        assertThat(NaughtyStrings.Emoji.Smileys.dropLast(13).all()).hasSize(2)
+        assertThat(NaughtyStrings.Emoji.Smileys.dropLast(13).all())
+                .containsExactly("\uD83D\uDE00", "\uD83D\uDE0D")
         assertThat(NaughtyStrings.Emoji.Smileys.random()).isNotBlank()
     }
 
