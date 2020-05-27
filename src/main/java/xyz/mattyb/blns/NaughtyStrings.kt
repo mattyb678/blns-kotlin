@@ -34,6 +34,9 @@ class NaughtyStrings {
             fun dropLast(num: Int): DroppedList<String> = DroppedList(all.dropLast(num))
 
             @JvmStatic
+            fun dropWhile(predicate: (String) -> Boolean) = DroppedList(all.dropWhile(predicate))
+
+            @JvmStatic
             fun random(): String = all.random()
         }
         object Animals {
@@ -52,10 +55,13 @@ class NaughtyStrings {
                 fun take(num: Int): List<String> = all.take(num)
 
                 @JvmStatic
-                fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
+                fun drop(num: Int) = DroppedList(all.drop(num))
 
                 @JvmStatic
-                fun dropLast(num: Int): DroppedList<String> = DroppedList(all.dropLast(num))
+                fun dropLast(num: Int) = DroppedList(all.dropLast(num))
+
+                @JvmStatic
+                fun dropWhile(predicate: (String) -> Boolean) = DroppedList(all.dropWhile(predicate))
 
                 @JvmStatic
                 fun random(): String = all.random()
@@ -88,6 +94,9 @@ class NaughtyStrings {
 
             @JvmStatic
             fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
+
+            @JvmStatic
+            fun dropLast(num: Int): DroppedList<String> = DroppedList(all.dropLast(num))
 
             @JvmStatic
             fun random(): String = all.random()
