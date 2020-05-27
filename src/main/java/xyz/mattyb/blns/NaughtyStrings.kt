@@ -144,6 +144,9 @@ class NaughtyStrings {
             fun take(num: Int): List<String> = all.take(num)
 
             @JvmStatic
+            fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
+
+            @JvmStatic
             fun random(): String = all.random()
         }
         object Signs {
