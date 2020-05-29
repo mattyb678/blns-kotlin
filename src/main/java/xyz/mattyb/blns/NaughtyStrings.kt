@@ -1,6 +1,9 @@
 package xyz.mattyb.blns
 
+typealias StrPred = (String) -> Boolean
+
 class NaughtyStrings {
+
     object Emoji {
         object Smileys {
             private val all = listOf(
@@ -25,16 +28,16 @@ class NaughtyStrings {
             fun all(): List<String> = all
 
             @JvmStatic
-            fun take(num: Int): List<String> = all.take(num)
+            fun take(num: Int) = IntermediateList(all.take(num))
 
             @JvmStatic
-            fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
+            fun drop(num: Int) = IntermediateList(all.drop(num))
 
             @JvmStatic
-            fun dropLast(num: Int): DroppedList<String> = DroppedList(all.dropLast(num))
+            fun dropLast(num: Int) = IntermediateList(all.dropLast(num))
 
             @JvmStatic
-            fun dropWhile(predicate: (String) -> Boolean) = DroppedList(all.dropWhile(predicate))
+            fun dropWhile(strPred: StrPred) = IntermediateList(all.dropWhile(strPred))
 
             @JvmStatic
             fun random(): String = all.random()
@@ -52,16 +55,16 @@ class NaughtyStrings {
                 fun all(): List<String> = all
 
                 @JvmStatic
-                fun take(num: Int): List<String> = all.take(num)
+                fun take(num: Int) = IntermediateList(all.take(num))
 
                 @JvmStatic
-                fun drop(num: Int) = DroppedList(all.drop(num))
+                fun drop(num: Int) = IntermediateList(all.drop(num))
 
                 @JvmStatic
-                fun dropLast(num: Int) = DroppedList(all.dropLast(num))
+                fun dropLast(num: Int) = IntermediateList(all.dropLast(num))
 
                 @JvmStatic
-                fun dropWhile(predicate: (String) -> Boolean) = DroppedList(all.dropWhile(predicate))
+                fun dropWhile(strPred: StrPred) = IntermediateList(all.dropWhile(strPred))
 
                 @JvmStatic
                 fun random(): String = all.random()
@@ -90,13 +93,16 @@ class NaughtyStrings {
             fun all(): List<String> = all
 
             @JvmStatic
-            fun take(num: Int): List<String> = all.take(num)
+            fun take(num: Int) = IntermediateList(all.take(num))
 
             @JvmStatic
-            fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
+            fun drop(num: Int) = IntermediateList(all.drop(num))
 
             @JvmStatic
-            fun dropLast(num: Int): DroppedList<String> = DroppedList(all.dropLast(num))
+            fun dropLast(num: Int)= IntermediateList(all.dropLast(num))
+
+            @JvmStatic
+            fun dropWhile(predicate: StrPred) = IntermediateList(all.dropWhile(predicate))
 
             @JvmStatic
             fun random(): String = all.random()
@@ -129,10 +135,16 @@ class NaughtyStrings {
             fun all(): List<String> = all
 
             @JvmStatic
-            fun take(num: Int): List<String> = all.take(num)
+            fun take(num: Int) = IntermediateList(all.take(num))
 
             @JvmStatic
-            fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
+            fun drop(num: Int)= IntermediateList(all.drop(num))
+
+            @JvmStatic
+            fun dropLast(num: Int) = IntermediateList(all.dropLast(num))
+
+            @JvmStatic
+            fun dropWhile(predicate: StrPred) = IntermediateList(all.dropWhile(predicate))
 
             @JvmStatic
             fun random(): String = all.random()
@@ -156,10 +168,16 @@ class NaughtyStrings {
             fun all(): List<String> = all
 
             @JvmStatic
-            fun take(num: Int): List<String> = all.take(num)
+            fun take(num: Int)= IntermediateList(all.take(num))
 
             @JvmStatic
-            fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
+            fun drop(num: Int)= IntermediateList(all.drop(num))
+
+            @JvmStatic
+            fun dropLast(num: Int) = IntermediateList(all.dropLast(num))
+
+            @JvmStatic
+            fun dropWhile(predicate: StrPred) = IntermediateList(all.dropWhile(predicate))
 
             @JvmStatic
             fun random(): String = all.random()
@@ -180,26 +198,40 @@ class NaughtyStrings {
             fun all(): List<String> = all
 
             @JvmStatic
-            fun take(num: Int): List<String> = all.take(num)
+            fun take(num: Int) = IntermediateList(all.take(num))
 
             @JvmStatic
-            fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
+            fun drop(num: Int) = IntermediateList(all.drop(num))
+
+            @JvmStatic
+            fun dropLast(num: Int) = IntermediateList(all.dropLast(num))
+
+            @JvmStatic
+            fun dropWhile(predicate: StrPred) = IntermediateList(all.dropWhile(predicate))
 
             @JvmStatic
             fun random(): String = all.random()
         }
         private val all = listOf<String>()
+                .asSequence()
                 .plus(Animals.Monkeys.all())
                 .plus(Hearts.all())
                 .plus(Smileys.all())
                 .plus(People.all())
                 .plus(Digits.all())
+                .toList()
 
         @JvmStatic
-        fun take(num: Int): List<String> = all.take(num)
+        fun take(num: Int) = IntermediateList(all.take(num))
 
         @JvmStatic
-        fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
+        fun drop(num: Int) = IntermediateList(all.drop(num))
+
+        @JvmStatic
+        fun dropLast(num: Int) = IntermediateList(all.dropLast(num))
+
+        @JvmStatic
+        fun dropWhile(predicate: StrPred) = IntermediateList(all.dropWhile(predicate))
 
         @JvmStatic
         fun all(): List<String> = all
@@ -228,10 +260,16 @@ class NaughtyStrings {
         fun all(): List<String> = all
 
         @JvmStatic
-        fun take(num: Int): List<String> = all.take(num)
+        fun take(num: Int) = IntermediateList(all.take(num))
 
         @JvmStatic
-        fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
+        fun drop(num: Int) = IntermediateList(all.drop(num))
+
+        @JvmStatic
+        fun dropLast(num: Int) = IntermediateList(all.dropLast(num))
+
+        @JvmStatic
+        fun dropWhile(predicate: StrPred) = IntermediateList(all.dropWhile(predicate))
 
         @JvmStatic
         fun random(): String = all.random()
@@ -254,7 +292,7 @@ class NaughtyStrings {
         }
 
         @JvmStatic
-        fun drop(num: Int): DroppedList<String> = TODO("Not yet implemented")
+        fun drop(num: Int): IntermediateList<String> = TODO("Not yet implemented")
     }
 
     object Unicode {
@@ -277,10 +315,16 @@ class NaughtyStrings {
             fun all(): List<String> = all
 
             @JvmStatic
-            fun take(num: Int): List<String> = all.take(num)
+            fun take(num: Int) = IntermediateList(all.take(num))
 
             @JvmStatic
-            fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
+            fun drop(num: Int) = IntermediateList(all.drop(num))
+
+            @JvmStatic
+            fun dropLast(num: Int) = IntermediateList(all.dropLast(num))
+
+            @JvmStatic
+            fun dropWhile(predicate: StrPred) = IntermediateList(all.dropWhile(predicate))
 
             @JvmStatic
             fun random(): String = all.random()
@@ -307,14 +351,20 @@ class NaughtyStrings {
                 fun random(): String = all.random()
 
                 @JvmStatic
-                fun take(num: Int): List<String> = all.take(num)
+                fun take(num: Int) = IntermediateList(all.take(num))
 
                 @JvmStatic
-                fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
+                fun drop(num: Int) = IntermediateList(all.drop(num))
+
+                @JvmStatic
+                fun dropLast(num: Int) = IntermediateList(all.dropLast(num))
+
+                @JvmStatic
+                fun dropWhile(predicate: StrPred) = IntermediateList(all.dropWhile(predicate))
 
                 @JvmStatic
                 @JvmOverloads
-                fun joinToString(separator: CharSequence = ", "): String = all.joinToString(separator)
+                fun joinToString(separator: CharSequence = ", ") = all.joinToString(separator)
             }
 
             object Bold {
@@ -337,11 +387,20 @@ class NaughtyStrings {
                 fun random(): String = all.random()
 
                 @JvmStatic
-                fun take(num: Int): List<String> = all.take(num)
+                fun take(num: Int) = IntermediateList(all.take(num))
+
+                @JvmStatic
+                fun drop(num: Int) = IntermediateList(all.drop(num))
+
+                @JvmStatic
+                fun dropLast(num: Int) = IntermediateList(all.dropLast(num))
+
+                @JvmStatic
+                fun dropWhile(predicate: StrPred) = IntermediateList(all.dropWhile(predicate))
 
                 @JvmStatic
                 @JvmOverloads
-                fun joinToString(separator: CharSequence = ", "): String = all.joinToString(separator)
+                fun joinToString(separator: CharSequence = ", ") = all.joinToString(separator)
             }
         }
 
@@ -354,10 +413,16 @@ class NaughtyStrings {
         fun all(): List<String> = all
 
         @JvmStatic
-        fun take(num: Int): List<String> = all.take(num)
+        fun take(num: Int) = IntermediateList(all.take(num))
 
         @JvmStatic
-        fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
+        fun drop(num: Int) = IntermediateList(all.drop(num))
+
+        @JvmStatic
+        fun dropLast(num: Int) = IntermediateList(all.dropLast(num))
+
+        @JvmStatic
+        fun dropWhile(strPred: StrPred) = IntermediateList(all.dropWhile(strPred))
 
         @JvmStatic
         fun random(): String = all.random()
@@ -365,13 +430,25 @@ class NaughtyStrings {
 
     companion object {
         private val all = listOf<String>()
+                .asSequence()
                 .plus(Emoji.all())
                 .plus(Emoticons.all())
                 .plus(Unicode.all())
+                .toList()
+
         @JvmStatic
         fun all(): List<String> = all
 
         @JvmStatic
-        fun drop(num: Int): DroppedList<String> = DroppedList(all.drop(num))
+        fun take(num: Int) = IntermediateList(all.take(num))
+
+        @JvmStatic
+        fun drop(num: Int) = IntermediateList(all.drop(num))
+
+        @JvmStatic
+        fun dropLast(num: Int) = IntermediateList(all.dropLast(num))
+
+        @JvmStatic
+        fun dropWhile(strPred: StrPred) = IntermediateList(all.dropWhile(strPred))
     }
 }

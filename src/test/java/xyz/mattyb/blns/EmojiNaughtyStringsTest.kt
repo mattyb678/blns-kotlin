@@ -8,9 +8,9 @@ open class EmojiNaughtyStringsTest {
     @Test
     fun testAll() {
         assertThat(NaughtyStrings.Emoji.all()).hasSize(65)
-        assertThat(NaughtyStrings.Emoji.take(2))
+        assertThat(NaughtyStrings.Emoji.take(2).all())
                 .containsExactly("\uD83D\uDC35", "\uD83D\uDE48")
-        assertThat(NaughtyStrings.Emoji.drop(50).take(3))
+        assertThat(NaughtyStrings.Emoji.drop(50).take(3).all())
                 .containsExactly("\uD83D\uDC68\uD83C\uDFFF\u200D\uD83E\uDDB0",
                         "\uD83D\uDC68\u200D\uD83E\uDDB1",
                         "\uD83D\uDC68\uD83C\uDFFF\u200D\uD83E\uDDB1")
@@ -20,9 +20,9 @@ open class EmojiNaughtyStringsTest {
     @Test
     fun testSmileys() {
         assertThat(NaughtyStrings.Emoji.Smileys.all()).hasSize(15)
-        assertThat(NaughtyStrings.Emoji.Smileys.take(2))
+        assertThat(NaughtyStrings.Emoji.Smileys.take(2).all())
                 .containsExactly("\uD83D\uDE00", "\uD83D\uDE0D")
-        assertThat(NaughtyStrings.Emoji.Smileys.drop(7).take(2))
+        assertThat(NaughtyStrings.Emoji.Smileys.drop(7).take(2).all())
                 .containsExactly("\uD83E\uDD10", "\uD83E\uDD28")
         assertThat(NaughtyStrings.Emoji.Smileys.dropLast(13).all()).hasSize(2)
         assertThat(NaughtyStrings.Emoji.Smileys.dropLast(13).all())
@@ -33,9 +33,9 @@ open class EmojiNaughtyStringsTest {
     @Test
     fun testMonkeys() {
         assertThat(NaughtyStrings.Emoji.Animals.Monkeys.all()).hasSize(4)
-        assertThat(NaughtyStrings.Emoji.Animals.Monkeys.take(2))
+        assertThat(NaughtyStrings.Emoji.Animals.Monkeys.take(2).all())
                 .containsExactly("\uD83D\uDC35", "\uD83D\uDE48")
-        assertThat(NaughtyStrings.Emoji.Animals.Monkeys.drop(1).take(2))
+        assertThat(NaughtyStrings.Emoji.Animals.Monkeys.drop(1).take(2).all())
                 .containsExactly("\uD83D\uDE48", "\uD83D\uDE49")
         assertThat(NaughtyStrings.Emoji.Animals.Monkeys.random()).isNotBlank()
     }
@@ -43,9 +43,9 @@ open class EmojiNaughtyStringsTest {
     @Test
     fun testPeople() {
         assertThat(NaughtyStrings.Emoji.People.all()).hasSize(20)
-        assertThat(NaughtyStrings.Emoji.People.take(3))
+        assertThat(NaughtyStrings.Emoji.People.take(3).all())
                 .containsExactly("\uD83D\uDC76", "\uD83E\uDDD2", "\uD83D\uDC66")
-        assertThat(NaughtyStrings.Emoji.People.drop(10).take(2))
+        assertThat(NaughtyStrings.Emoji.People.drop(10).take(2).all())
                 .containsExactly("\uD83D\uDE4D", "\uD83E\uDDD1\u200D\uD83E\uDDB0")
         assertThat(NaughtyStrings.Emoji.People.random()).isNotBlank()
     }
@@ -53,9 +53,9 @@ open class EmojiNaughtyStringsTest {
     @Test
     fun testDigits() {
         assertThat(NaughtyStrings.Emoji.Digits.all()).hasSize(11)
-        assertThat(NaughtyStrings.Emoji.Digits.take(2))
+        assertThat(NaughtyStrings.Emoji.Digits.take(2).all())
                 .containsExactly("0️⃣", "1️⃣")
-        assertThat(NaughtyStrings.Emoji.Digits.drop(6).take(2))
+        assertThat(NaughtyStrings.Emoji.Digits.drop(6).take(2).all())
                 .containsExactly("6️⃣", "7️⃣")
         assertThat(NaughtyStrings.Emoji.Digits.random()).isNotBlank()
     }
@@ -63,9 +63,9 @@ open class EmojiNaughtyStringsTest {
     @Test
     fun testSigns() {
         assertThat(NaughtyStrings.Emoji.Signs.all()).hasSize(8)
-        assertThat(NaughtyStrings.Emoji.Signs.take(2))
+        assertThat(NaughtyStrings.Emoji.Signs.take(2).all())
                 .containsExactly("\uD83D\uDEBE", "\uD83C\uDD92")
-        assertThat(NaughtyStrings.Emoji.Signs.drop(7).take(2))
+        assertThat(NaughtyStrings.Emoji.Signs.drop(7).take(2).all())
                 .containsExactly("\uD83C\uDFE7")
         assertThat(NaughtyStrings.Emoji.Signs.random()).isNotBlank()
     }
@@ -73,9 +73,9 @@ open class EmojiNaughtyStringsTest {
     @Test
     fun testHearts() {
         assertThat(NaughtyStrings.Emoji.Hearts.all()).hasSize(15)
-        assertThat(NaughtyStrings.Emoji.Hearts.take(3))
+        assertThat(NaughtyStrings.Emoji.Hearts.take(3).all())
                 .containsExactly("❤️", "\uD83D\uDC94", "\uD83D\uDC8C")
-        assertThat(NaughtyStrings.Emoji.Hearts.drop(10).take(2))
+        assertThat(NaughtyStrings.Emoji.Hearts.drop(10).take(2).all())
                 .containsExactly("\uD83D\uDC9F", "\uD83D\uDC9C")
         assertThat(NaughtyStrings.Emoji.Hearts.random()).isNotBlank()
     }
