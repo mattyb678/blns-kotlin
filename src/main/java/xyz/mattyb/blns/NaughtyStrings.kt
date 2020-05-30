@@ -212,8 +212,7 @@ class NaughtyStrings {
             @JvmStatic
             fun random(): String = all.random()
         }
-        internal val all = listOf<String>()
-                .asSequence()
+        internal val all = sequenceOf<String>()
                 .plus(Animals.Monkeys.all)
                 .plus(Hearts.all)
                 .plus(Smileys.all)
@@ -277,23 +276,51 @@ class NaughtyStrings {
     }
 
     object Numeric {
-        @JvmStatic
-        fun asList(): List<String> {
-            TODO("Not yet implemented")
+        object Currency {
+            object USD {
+                internal val all = listOf(
+                        "\$1.00",
+                        "-\$1.00"
+                )
+            }
+
+            object EURO {
+                internal val all = listOf(
+                        "€1.00",
+                        "-€1.00"
+                )
+            }
+
+            internal val all = listOf<String>()
+                    .asSequence()
+                    .plus(USD.all)
+                    .plus(EURO.all)
+                    .toList()
         }
 
-        @JvmStatic
-        fun take(num: Int): List<String> {
-            TODO("Not yet implemented")
+        object Fractions {
+            internal val all = listOf(
+                    "1/2",
+                    "-1/2"
+            )
         }
 
-        @JvmStatic
-        fun random(): String {
-            TODO("Not yet implemented")
-        }
+        internal val all = sequenceOf<String>()
+                .plus(Currency.all)
+                .plus(Fractions.all)
+                .toList()
 
         @JvmStatic
-        fun drop(num: Int): IntermediateList<String> = TODO("Not yet implemented")
+        fun asList(): List<String> = all
+
+        @JvmStatic
+        fun take(num: Int) = IntermediateList(all.take(num))
+
+        @JvmStatic
+        fun drop(num: Int) = IntermediateList(all.drop(num))
+
+        @JvmStatic
+        fun random() = all.random()
     }
 
     object Unicode {
@@ -405,8 +432,7 @@ class NaughtyStrings {
             }
         }
 
-        internal val all = listOf<String>()
-                .asSequence()
+        internal val all = sequenceOf<String>()
                 .plus(UpsideDown.all)
                 .plus(Font.FullWidth.all)
                 .plus(Font.Bold.all)
@@ -432,9 +458,9 @@ class NaughtyStrings {
     }
 
     companion object {
-        private val all = listOf<String>()
-                .asSequence()
+        private val all = sequenceOf<String>()
                 .plus(Emoji.all)
+                .plus(Numeric.all)
                 .plus(Emoticons.all)
                 .plus(Unicode.all)
                 .toList()
