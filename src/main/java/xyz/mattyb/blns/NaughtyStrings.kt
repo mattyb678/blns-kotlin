@@ -6,7 +6,7 @@ class NaughtyStrings {
 
     object Emoji {
         object Smileys {
-            private val all = listOf(
+            internal val all = listOf(
                     "\uD83D\uDE00",
                     "\uD83D\uDE0D",
                     "\uD83D\uDE02",
@@ -25,7 +25,7 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun all(): List<String> = all
+            fun asList(): List<String> = all
 
             @JvmStatic
             fun take(num: Int) = IntermediateList(all.take(num))
@@ -44,7 +44,7 @@ class NaughtyStrings {
         }
         object Animals {
             object Monkeys {
-                private val all = listOf(
+                internal val all = listOf(
                         "\uD83D\uDC35",
                         "\uD83D\uDE48",
                         "\uD83D\uDE49",
@@ -52,7 +52,7 @@ class NaughtyStrings {
                 )
 
                 @JvmStatic
-                fun all(): List<String> = all
+                fun asList(): List<String> = all
 
                 @JvmStatic
                 fun take(num: Int) = IntermediateList(all.take(num))
@@ -71,7 +71,7 @@ class NaughtyStrings {
             }
         }
         object Hearts {
-            private val all = listOf(
+            internal val all = listOf(
                     "❤️",
                     "\uD83D\uDC94",
                     "\uD83D\uDC8C",
@@ -90,7 +90,7 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun all(): List<String> = all
+            fun asList(): List<String> = all
 
             @JvmStatic
             fun take(num: Int) = IntermediateList(all.take(num))
@@ -108,7 +108,7 @@ class NaughtyStrings {
             fun random(): String = all.random()
         }
         object People {
-            private val all = listOf(
+            internal val all = listOf(
                     "\uD83D\uDC76",
                     "\uD83E\uDDD2",
                     "\uD83D\uDC66",
@@ -132,7 +132,7 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun all(): List<String> = all
+            fun asList(): List<String> = all
 
             @JvmStatic
             fun take(num: Int) = IntermediateList(all.take(num))
@@ -150,7 +150,7 @@ class NaughtyStrings {
             fun random(): String = all.random()
         }
         object Digits {
-            private val all = listOf(
+            internal val all = listOf(
                     "0️⃣",
                     "1️⃣",
                     "2️⃣",
@@ -165,7 +165,7 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun all(): List<String> = all
+            fun asList(): List<String> = all
 
             @JvmStatic
             fun take(num: Int)= IntermediateList(all.take(num))
@@ -183,7 +183,7 @@ class NaughtyStrings {
             fun random(): String = all.random()
         }
         object Signs {
-            private val all = listOf(
+            internal val all = listOf(
                     "\uD83D\uDEBE",
                     "\uD83C\uDD92",
                     "\uD83C\uDD93",
@@ -195,7 +195,7 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun all(): List<String> = all
+            fun asList(): List<String> = all
 
             @JvmStatic
             fun take(num: Int) = IntermediateList(all.take(num))
@@ -212,13 +212,14 @@ class NaughtyStrings {
             @JvmStatic
             fun random(): String = all.random()
         }
-        private val all = listOf<String>()
+        internal val all = listOf<String>()
                 .asSequence()
-                .plus(Animals.Monkeys.all())
-                .plus(Hearts.all())
-                .plus(Smileys.all())
-                .plus(People.all())
-                .plus(Digits.all())
+                .plus(Animals.Monkeys.all)
+                .plus(Hearts.all)
+                .plus(Smileys.all)
+                .plus(People.all)
+                .plus(Digits.all)
+                .plus(Signs.all)
                 .toList()
 
         @JvmStatic
@@ -234,14 +235,14 @@ class NaughtyStrings {
         fun dropWhile(predicate: StrPred) = IntermediateList(all.dropWhile(predicate))
 
         @JvmStatic
-        fun all(): List<String> = all
+        fun asList(): List<String> = all
 
         @JvmStatic
         fun random(): String = all.random()
     }
 
     object Emoticons {
-        private val all = listOf(
+        internal val all = listOf(
                 "ヽ༼ຈل͜ຈ༽ﾉ ヽ༼ຈل͜ຈ༽ﾉ",
                 "(｡◕ ∀ ◕｡)",
                 "｀ｨ(´∀｀∩",
@@ -257,7 +258,7 @@ class NaughtyStrings {
         )
 
         @JvmStatic
-        fun all(): List<String> = all
+        fun asList(): List<String> = all
 
         @JvmStatic
         fun take(num: Int) = IntermediateList(all.take(num))
@@ -277,7 +278,7 @@ class NaughtyStrings {
 
     object Numeric {
         @JvmStatic
-        fun all(): List<String> {
+        fun asList(): List<String> {
             TODO("Not yet implemented")
         }
 
@@ -297,7 +298,7 @@ class NaughtyStrings {
 
     object Unicode {
         object UpsideDown {
-            private val all = listOf(
+            internal val all = listOf(
                     "op",
                     "pǝs",
                     "'ʇᴉlǝ",
@@ -312,7 +313,7 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun all(): List<String> = all
+            fun asList(): List<String> = all
 
             @JvmStatic
             fun take(num: Int) = IntermediateList(all.take(num))
@@ -332,7 +333,7 @@ class NaughtyStrings {
 
         object Font {
             object FullWidth {
-                private val all = listOf(
+                internal val all = listOf(
                         "Ｔｈｅ",
                         "ｑｕｉｃｋ",
                         "ｂｒｏｗｎ",
@@ -345,7 +346,7 @@ class NaughtyStrings {
                 )
 
                 @JvmStatic
-                fun all(): List<String> = all
+                fun asList(): List<String> = all
 
                 @JvmStatic
                 fun random(): String = all.random()
@@ -368,7 +369,7 @@ class NaughtyStrings {
             }
 
             object Bold {
-                private val all = listOf(
+                internal val all = listOf(
                         "\uD835\uDC13\uD835\uDC21\uD835\uDC1E",
                         "\uD835\uDC2A\uD835\uDC2E\uD835\uDC22\uD835\uDC1C\uD835\uDC24",
                         "\uD835\uDC1B\uD835\uDC2B\uD835\uDC28\uD835\uDC30\uD835\uDC27",
@@ -381,7 +382,7 @@ class NaughtyStrings {
                 )
 
                 @JvmStatic
-                fun all(): List<String> = all
+                fun asList(): List<String> = all
 
                 @JvmStatic
                 fun random(): String = all.random()
@@ -404,13 +405,15 @@ class NaughtyStrings {
             }
         }
 
-        private val all = listOf<String>()
-                .plus(UpsideDown.all())
-                .plus(Font.FullWidth.all())
-                .plus(Font.Bold.all())
+        internal val all = listOf<String>()
+                .asSequence()
+                .plus(UpsideDown.all)
+                .plus(Font.FullWidth.all)
+                .plus(Font.Bold.all)
+                .toList()
 
         @JvmStatic
-        fun all(): List<String> = all
+        fun asList(): List<String> = all
 
         @JvmStatic
         fun take(num: Int) = IntermediateList(all.take(num))
@@ -431,13 +434,13 @@ class NaughtyStrings {
     companion object {
         private val all = listOf<String>()
                 .asSequence()
-                .plus(Emoji.all())
-                .plus(Emoticons.all())
-                .plus(Unicode.all())
+                .plus(Emoji.all)
+                .plus(Emoticons.all)
+                .plus(Unicode.all)
                 .toList()
 
         @JvmStatic
-        fun all(): List<String> = all
+        fun asList(): List<String> = all
 
         @JvmStatic
         fun take(num: Int) = IntermediateList(all.take(num))
