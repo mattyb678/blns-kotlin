@@ -8,7 +8,7 @@ class JavaEmojiNaughtyStringsTest {
 
     @Test
     void testHearts() {
-        assertThat(NaughtyStrings.Emoji.Hearts.asList()).hasSize(15);
+        assertThat(NaughtyStrings.Emoji.Hearts.toList()).hasSize(15);
         assertThat(NaughtyStrings.Emoji.Hearts.drop(9)).hasSize(6);
         assertThat(NaughtyStrings.Emoji.Hearts.drop(2).drop(9).take(2))
                 .containsExactly("\uD83D\uDC9C", "\uD83D\uDC9B");

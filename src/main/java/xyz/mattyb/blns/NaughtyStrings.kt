@@ -25,7 +25,7 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun asList(): List<String> = all
+            fun toList(): List<String> = all
 
             @JvmStatic
             fun take(num: Int) = IntermediateList(all.take(num))
@@ -52,7 +52,7 @@ class NaughtyStrings {
                 )
 
                 @JvmStatic
-                fun asList(): List<String> = all
+                fun toList(): List<String> = all
 
                 @JvmStatic
                 fun take(num: Int) = IntermediateList(all.take(num))
@@ -90,7 +90,7 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun asList(): List<String> = all
+            fun toList(): List<String> = all
 
             @JvmStatic
             fun take(num: Int) = IntermediateList(all.take(num))
@@ -132,7 +132,7 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun asList(): List<String> = all
+            fun toList(): List<String> = all
 
             @JvmStatic
             fun take(num: Int) = IntermediateList(all.take(num))
@@ -165,7 +165,7 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun asList(): List<String> = all
+            fun toList(): List<String> = all
 
             @JvmStatic
             fun take(num: Int)= IntermediateList(all.take(num))
@@ -195,7 +195,7 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun asList(): List<String> = all
+            fun toList(): List<String> = all
 
             @JvmStatic
             fun take(num: Int) = IntermediateList(all.take(num))
@@ -234,7 +234,7 @@ class NaughtyStrings {
         fun dropWhile(predicate: StrPred) = IntermediateList(all.dropWhile(predicate))
 
         @JvmStatic
-        fun asList(): List<String> = all
+        fun toList(): List<String> = all
 
         @JvmStatic
         fun random(): String = all.random()
@@ -257,7 +257,7 @@ class NaughtyStrings {
         )
 
         @JvmStatic
-        fun asList(): List<String> = all
+        fun toList(): List<String> = all
 
         @JvmStatic
         fun take(num: Int) = IntermediateList(all.take(num))
@@ -278,40 +278,106 @@ class NaughtyStrings {
     object Numeric {
         object Currency {
             object USD {
-                internal val all = listOf(
-                        "\$1.00",
+
+                @JvmStatic
+                fun positive() = IntermediateList(listOf(
+                        "\$1.00"
+                ))
+
+                @JvmStatic
+                fun negative() = IntermediateList(listOf(
                         "-\$1.00"
-                )
+                ))
+
+                internal val all = sequenceOf<String>()
+                        .plus(positive())
+                        .plus(negative())
+                        .toList()
+
+                @JvmStatic
+                fun take(num: Int) = IntermediateList(all.take(num))
             }
 
-            object EURO {
-                internal val all = listOf(
-                        "€1.00",
+            object EUR {
+
+                @JvmStatic
+                fun positive() = IntermediateList(listOf(
+                        "€1.00"
+                ))
+
+                @JvmStatic
+                fun negative() = IntermediateList(listOf(
                         "-€1.00"
-                )
+                ))
+
+                internal val all = sequenceOf<String>()
+                        .plus(negative())
+                        .plus(positive())
+                        .toList()
             }
 
             internal val all = listOf<String>()
                     .asSequence()
                     .plus(USD.all)
-                    .plus(EURO.all)
+                    .plus(EUR.all)
                     .toList()
         }
 
         object Fractions {
-            internal val all = listOf(
-                    "1/2",
+
+            @JvmStatic
+            fun positive() = IntermediateList(listOf(
+                    "1/2"
+            ))
+
+            @JvmStatic
+            fun negative() = IntermediateList(listOf(
                     "-1/2"
+            ))
+
+            internal val all = sequenceOf<String>()
+                    .plus(positive())
+                    .plus(negative())
+                    .toList()
+        }
+
+        object Scientific {
+
+            @JvmStatic
+            fun positive() = IntermediateList(listOf(
+                    "1E2",
+                    "1E+02"
+            ))
+
+            @JvmStatic
+            fun negative() = IntermediateList(listOf(
+                    "-1E2",
+                    "-1E02",
+                    "-1E+02"
+            ))
+
+            internal val all = sequenceOf<String>()
+                    .plus(positive())
+                    .plus(negative())
+                    .toList()
+        }
+
+        object Hex {
+            internal val all = listOf(
+                    "0xffffffffffffffff",
+                    "0xabad1dea"
             )
         }
 
         internal val all = sequenceOf<String>()
                 .plus(Currency.all)
                 .plus(Fractions.all)
+                .plus(Scientific.all)
+                .plus(Hex.all)
                 .toList()
 
         @JvmStatic
-        fun asList(): List<String> = all
+        fun toList(): List<String> = all
 
         @JvmStatic
         fun take(num: Int) = IntermediateList(all.take(num))
@@ -340,7 +406,7 @@ class NaughtyStrings {
             )
 
             @JvmStatic
-            fun asList(): List<String> = all
+            fun toList(): List<String> = all
 
             @JvmStatic
             fun take(num: Int) = IntermediateList(all.take(num))
@@ -373,7 +439,7 @@ class NaughtyStrings {
                 )
 
                 @JvmStatic
-                fun asList(): List<String> = all
+                fun toList(): List<String> = all
 
                 @JvmStatic
                 fun random(): String = all.random()
@@ -409,7 +475,7 @@ class NaughtyStrings {
                 )
 
                 @JvmStatic
-                fun asList(): List<String> = all
+                fun toList(): List<String> = all
 
                 @JvmStatic
                 fun random(): String = all.random()
@@ -439,7 +505,7 @@ class NaughtyStrings {
                 .toList()
 
         @JvmStatic
-        fun asList(): List<String> = all
+        fun toList(): List<String> = all
 
         @JvmStatic
         fun take(num: Int) = IntermediateList(all.take(num))
@@ -466,7 +532,7 @@ class NaughtyStrings {
                 .toList()
 
         @JvmStatic
-        fun asList(): List<String> = all
+        fun toList(): List<String> = all
 
         @JvmStatic
         fun take(num: Int) = IntermediateList(all.take(num))
