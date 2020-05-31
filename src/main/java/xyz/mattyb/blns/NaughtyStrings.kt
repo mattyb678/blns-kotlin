@@ -613,12 +613,40 @@ class NaughtyStrings {
         fun random(): String = all.random()
     }
 
+    object Injection {
+        object Script {
+            internal val all = listOf(
+                    "<script>alert(123)</script>",
+                    "&lt;script&gt;alert(&#39;123&#39;);&lt;/script&gt;"
+            )
+        }
+
+        object Sql {
+            internal val all = listOf(
+                    "1;DROP TABLE users"
+            )
+        }
+
+        object Server {
+            internal val all = listOf(
+                    "/dev/null; touch /tmp/blns.fail ; echo"
+            )
+        }
+
+        internal val all = sequenceOf<String>()
+                .plus(Script.all)
+                .plus(Sql.all)
+                .plus(Server.all)
+                .toList()
+    }
+
     companion object {
         private val all = sequenceOf<String>()
                 .plus(Emoji.all)
                 .plus(Numeric.all)
                 .plus(Emoticons.all)
                 .plus(Unicode.all)
+                .plus(Injection.all)
                 .toList()
 
         @JvmStatic
