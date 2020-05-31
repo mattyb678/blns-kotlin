@@ -496,12 +496,46 @@ class NaughtyStrings {
                 @JvmOverloads
                 fun joinToString(separator: CharSequence = ", ") = all.joinToString(separator)
             }
+
+            object Fraktur {
+                internal val all = listOf(
+                        "\uD835\uDD7F\uD835\uDD8D\uD835\uDD8A",
+                        "\uD835\uDD96\uD835\uDD9A\uD835\uDD8E\uD835\uDD88\uD835\uDD90",
+                        "\uD835\uDD87\uD835\uDD97\uD835\uDD94\uD835\uDD9C\uD835\uDD93",
+                        "\uD835\uDD8B\uD835\uDD94\uD835\uDD9D",
+                        "\uD835\uDD8F\uD835\uDD9A\uD835\uDD92\uD835\uDD95\uD835\uDD98",
+                        "\uD835\uDD94\uD835\uDD9B\uD835\uDD8A\uD835\uDD97",
+                        "\uD835\uDD99\uD835\uDD8D\uD835\uDD8A",
+                        "\uD835\uDD91\uD835\uDD86\uD835\uDD9F\uD835\uDD9E",
+                        "\uD835\uDD89\uD835\uDD94\uD835\uDD8C"
+                )
+
+                @JvmStatic
+                fun toList(): List<String> = all
+
+                @JvmStatic
+                fun random() = all.random()
+
+                @JvmStatic
+                fun take(num: Int) = IntermediateList(all.take(num))
+
+                @JvmStatic
+                fun drop(num: Int) = IntermediateList(all.drop(num))
+
+                @JvmStatic
+                fun dropWhile(predicate: StrPred) = IntermediateList(all.dropWhile(predicate))
+
+                @JvmStatic
+                @JvmOverloads
+                fun joinToString(separator: CharSequence = ", ") = all.joinToString(separator)
+            }
         }
 
         internal val all = sequenceOf<String>()
                 .plus(UpsideDown.all)
                 .plus(Font.FullWidth.all)
                 .plus(Font.Bold.all)
+                .plus(Font.Fraktur.all)
                 .toList()
 
         @JvmStatic
