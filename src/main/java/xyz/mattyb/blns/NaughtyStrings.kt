@@ -640,6 +640,17 @@ class NaughtyStrings {
                 .toList()
     }
 
+    object Innocuous {
+        internal val all = listOf(
+                "Scunthorpe General Hospital",
+                "Penistone Community Church",
+                "Lightwater Country Park"
+        )
+
+        @JvmStatic
+        fun random() = all.random()
+    }
+
     companion object {
         private val all = sequenceOf<String>()
                 .plus(Emoji.all)
@@ -647,6 +658,7 @@ class NaughtyStrings {
                 .plus(Emoticons.all)
                 .plus(Unicode.all)
                 .plus(Injection.all)
+                .plus(Innocuous.all)
                 .toList()
 
         @JvmStatic
