@@ -426,7 +426,32 @@ class NaughtyStrings {
 
         object Font {
             object FullWidth {
-                internal val all = listOf(
+                private val alphaNum = mapOf(
+                        'A' to 'Ａ', 'a' to 'ａ', 'B' to 'Ｂ', 'b' to 'ｂ', 'C' to 'Ｃ',
+                        'c' to 'ｃ', 'D' to 'Ｄ', 'd' to 'ｄ', 'E' to 'Ｅ', 'e' to 'ｅ',
+                        'F' to 'Ｆ', 'f' to 'ｆ', 'G' to 'Ｇ', 'g' to 'ｇ', 'H' to 'Ｈ',
+                        'h' to 'ｈ', 'I' to 'Ｉ', 'i' to 'ｉ', 'J' to 'Ｊ', 'j' to 'ｊ',
+                        'K' to 'Ｋ', 'k' to 'ｋ', 'L' to 'Ｌ', 'l' to 'ｌ', 'M' to 'Ｍ',
+                        'm' to 'ｍ', 'N' to 'Ｎ', 'n' to 'ｎ', 'O' to 'Ｏ', 'o' to 'ｏ',
+                        'P' to 'Ｐ', 'p' to 'ｐ', 'Q' to 'Ｑ', 'q' to 'ｑ', 'R' to 'Ｒ',
+                        'r' to 'ｒ', 'S' to 'Ｓ', 's' to 'ｓ', 'T' to 'Ｔ', 't' to 'ｔ',
+                        'U' to 'Ｕ', 'u' to 'ｕ', 'V' to 'Ｖ', 'v' to 'ｖ', 'W' to 'Ｗ',
+                        'w' to 'ｗ', 'X' to 'Ｘ', 'x' to 'ｘ', 'Y' to 'Ｙ', 'y' to 'ｙ',
+                        'Z' to 'Ｚ', 'z' to 'ｚ', '1' to '１', '2' to '２', '3' to '３',
+                        '4' to '４', '5' to '５', '6' to '６', '7' to '７', '8' to '８',
+                        '9' to '９', '0' to '０'
+                )
+
+                @JvmStatic
+                fun convert(toConvert: String) = toConvert.map {
+                    return@map if (it.isWhitespace()) {
+                        it
+                    } else {
+                        alphaNum[it] ?: "-"
+                    }
+                }.joinToString("")
+
+                internal val words = listOf(
                         "Ｔｈｅ",
                         "ｑｕｉｃｋ",
                         "ｂｒｏｗｎ",
@@ -439,26 +464,49 @@ class NaughtyStrings {
                 )
 
                 @JvmStatic
-                fun toList(): List<String> = all
+                fun toCharacterList(): List<String> = alphaNum.values.map { it.toString() }
 
                 @JvmStatic
-                fun random(): String = all.random()
+                fun toWordList(): List<String> = words
 
                 @JvmStatic
-                fun take(num: Int) = IntermediateList(all.take(num))
+                fun randomCharacter(): String = alphaNum.values.random().toString()
 
                 @JvmStatic
-                fun drop(num: Int) = IntermediateList(all.drop(num))
+                fun randomWord(): String = words.random()
 
                 @JvmStatic
-                fun dropLast(num: Int) = IntermediateList(all.dropLast(num))
+                fun takeWords(num: Int) = IntermediateList(words.take(num))
 
                 @JvmStatic
-                fun dropWhile(predicate: StrPred) = IntermediateList(all.dropWhile(predicate))
+                fun takeCharacters(num: Int) = IntermediateList(alphaNum.values.map { it.toString() })
 
                 @JvmStatic
-                @JvmOverloads
-                fun joinToString(separator: CharSequence = ", ") = all.joinToString(separator)
+                fun dropWords(num: Int) = IntermediateList(words.drop(num))
+
+                @JvmStatic
+                fun dropCharacters(num: Int): IntermediateList<String> {
+                    return IntermediateList(alphaNum.values.map { it.toString() }.drop(num))
+                }
+
+                @JvmStatic
+                fun dropLastWords(num: Int) = IntermediateList(words.dropLast(num))
+
+                @JvmStatic
+                fun dropLastCharacters(num: Int): IntermediateList<String> {
+                    return IntermediateList(alphaNum.values.map { it.toString() }.dropLast(num))
+                }
+
+                @JvmStatic
+                fun dropWordsWhile(predicate: StrPred) = IntermediateList(words.dropWhile(predicate))
+
+                @JvmStatic
+                fun dropCharactersWhile(predicate: StrPred): IntermediateList<String> {
+                    return IntermediateList(alphaNum.values.map { it.toString() }.dropWhile(predicate))
+                }
+
+                @JvmStatic
+                fun pangram() = words.joinToString(" ")
             }
 
             object Bold {
@@ -497,6 +545,13 @@ class NaughtyStrings {
                 fun joinToString(separator: CharSequence = ", ") = all.joinToString(separator)
             }
 
+            object BoldScript {
+                internal val all = listOf(
+                        "\uD835\uDCE3\uD835\uDCF1\uD835\uDCEE",
+                        "\uD835\uDCFA\uD835\uDCFE\uD835\uDCF2\uD835\uDCEC\uD835\uDCF4"
+                )
+            }
+
             object Fraktur {
                 internal val all = listOf(
                         "\uD835\uDD7F\uD835\uDD8D\uD835\uDD8A",
@@ -533,8 +588,9 @@ class NaughtyStrings {
 
         internal val all = sequenceOf<String>()
                 .plus(UpsideDown.all)
-                .plus(Font.FullWidth.all)
+                .plus(Font.FullWidth.words)
                 .plus(Font.Bold.all)
+                .plus(Font.BoldScript.all)
                 .plus(Font.Fraktur.all)
                 .toList()
 

@@ -6,6 +6,8 @@ class IntermediateList<T>(private val remaining: List<T>): List<T> {
 
     fun take(num: Int) = IntermediateList(remaining.take(num))
 
+    fun takeLast(num: Int) = IntermediateList(remaining.takeLast(num))
+
     fun drop(num: Int) = IntermediateList(remaining.drop(num))
 
     fun dropLast(num: Int) = IntermediateList(remaining.dropLast(num))
@@ -23,5 +25,5 @@ class IntermediateList<T>(private val remaining: List<T>): List<T> {
     override fun listIterator() = remaining.listIterator()
     override fun listIterator(index: Int) = remaining.listIterator(index)
     override fun subList(fromIndex: Int, toIndex: Int) = IntermediateList(remaining.subList(fromIndex, toIndex))
-
+    override fun toString(): String = remaining.toString()
 }
