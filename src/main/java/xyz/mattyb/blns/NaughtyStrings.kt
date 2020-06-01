@@ -467,22 +467,22 @@ class NaughtyStrings {
                 fun toCharacterList(): List<String> = alphaNum.values.map { it.toString() }
 
                 @JvmStatic
-                fun toWordList(): List<String> = words
+                fun toPangramList(): List<String> = words
 
                 @JvmStatic
                 fun randomCharacter(): String = alphaNum.values.random().toString()
 
                 @JvmStatic
-                fun randomWord(): String = words.random()
+                fun randomPangramWord(): String = words.random()
 
                 @JvmStatic
-                fun takeWords(num: Int) = IntermediateList(words.take(num))
+                fun takePangramWords(num: Int) = IntermediateList(words.take(num))
 
                 @JvmStatic
                 fun takeCharacters(num: Int) = IntermediateList(alphaNum.values.map { it.toString() })
 
                 @JvmStatic
-                fun dropWords(num: Int) = IntermediateList(words.drop(num))
+                fun dropPangramWords(num: Int) = IntermediateList(words.drop(num))
 
                 @JvmStatic
                 fun dropCharacters(num: Int): IntermediateList<String> {
@@ -490,7 +490,7 @@ class NaughtyStrings {
                 }
 
                 @JvmStatic
-                fun dropLastWords(num: Int) = IntermediateList(words.dropLast(num))
+                fun dropLastPangramWords(num: Int) = IntermediateList(words.dropLast(num))
 
                 @JvmStatic
                 fun dropLastCharacters(num: Int): IntermediateList<String> {
@@ -498,7 +498,7 @@ class NaughtyStrings {
                 }
 
                 @JvmStatic
-                fun dropWordsWhile(predicate: StrPred) = IntermediateList(words.dropWhile(predicate))
+                fun dropPangramWordsWhile(predicate: StrPred) = IntermediateList(words.dropWhile(predicate))
 
                 @JvmStatic
                 fun dropCharactersWhile(predicate: StrPred): IntermediateList<String> {
@@ -510,7 +510,30 @@ class NaughtyStrings {
             }
 
             object Bold {
-                internal val all = listOf(
+                private val alphaNum = mapOf(
+                        'A' to "\uD835\uDC00", 'a' to "\uD835\uDC1A", 'B' to "\uD835\uDC01",
+                        'b' to "\uD835\uDC1B", 'C' to "\uD835\uDC02", 'c' to "\uD835\uDC1C",
+                        'D' to "\uD835\uDC03", 'd' to "\uD835\uDC1D", 'E' to "\uD835\uDC04",
+                        'e' to "\uD835\uDC1E", 'F' to "\uD835\uDC05", 'f' to "\uD835\uDC1F",
+                        'G' to "\uD835\uDC06", 'g' to "\uD835\uDC20", 'H' to "\uD835\uDC07",
+                        'h' to "\uD835\uDC21", 'I' to "\uD835\uDC08", 'i' to "\uD835\uDC22",
+                        'J' to "\uD835\uDC09", 'j' to "\uD835\uDC23", 'K' to "\uD835\uDC0A",
+                        'k' to "\uD835\uDC24", 'L' to "\uD835\uDC0B", 'l' to "\uD835\uDC25",
+                        'M' to "\uD835\uDC0C", 'm' to "\uD835\uDC26", 'N' to "\uD835\uDC0D",
+                        'n' to "\uD835\uDC27", 'O' to "\uD835\uDC0E", 'o' to "\uD835\uDC28",
+                        'P' to "\uD835\uDC0F", 'p' to "\uD835\uDC29", 'Q' to "\uD835\uDC10",
+                        'q' to "\uD835\uDC2A", 'R' to "\uD835\uDC11", 'r' to "\uD835\uDC2B",
+                        'S' to "\uD835\uDC12", 's' to "\uD835\uDC2C", 'T' to "\uD835\uDC13",
+                        't' to "\uD835\uDC2D", 'U' to "\uD835\uDC14", 'u' to "\uD835\uDC2E",
+                        'V' to "\uD835\uDC15", 'v' to "\uD835\uDC2F", 'W' to "\uD835\uDC16",
+                        'w' to "\uD835\uDC30", 'X' to "\uD835\uDC17", 'x' to "\uD835\uDC31",
+                        'Y' to "\uD835\uDC18", 'y' to "\uD835\uDC32", 'Z' to "\uD835\uDC19",
+                        'z' to "\uD835\uDC33", '1' to "\uD835\uDFCF", '2' to "\uD835\uDFD0",
+                        '3' to "\uD835\uDFD1", '4' to "\uD835\uDFD2", '5' to "\uD835\uDFD3",
+                        '6' to "\uD835\uDFD4", '7' to "\uD835\uDFD5", '8' to "\uD835\uDFD6",
+                        '9' to "\uD835\uDFD7", '0' to "\uD835\uDFCE"
+                )
+                internal val pangram = listOf(
                         "\uD835\uDC13\uD835\uDC21\uD835\uDC1E",
                         "\uD835\uDC2A\uD835\uDC2E\uD835\uDC22\uD835\uDC1C\uD835\uDC24",
                         "\uD835\uDC1B\uD835\uDC2B\uD835\uDC28\uD835\uDC30\uD835\uDC27",
@@ -523,26 +546,34 @@ class NaughtyStrings {
                 )
 
                 @JvmStatic
-                fun toList(): List<String> = all
+                fun convert(toConvert: String) = toConvert.map {
+                    return@map if (it.isWhitespace()) {
+                        it
+                    } else {
+                        alphaNum[it] ?: "-"
+                    }
+                }.joinToString("")
 
                 @JvmStatic
-                fun random(): String = all.random()
+                fun toPangramList(): List<String> = pangram
 
                 @JvmStatic
-                fun take(num: Int) = IntermediateList(all.take(num))
+                fun randomWord(): String = pangram.random()
 
                 @JvmStatic
-                fun drop(num: Int) = IntermediateList(all.drop(num))
+                fun takePangramWords(num: Int) = IntermediateList(pangram.take(num))
 
                 @JvmStatic
-                fun dropLast(num: Int) = IntermediateList(all.dropLast(num))
+                fun dropPangramWords(num: Int) = IntermediateList(pangram.drop(num))
 
                 @JvmStatic
-                fun dropWhile(predicate: StrPred) = IntermediateList(all.dropWhile(predicate))
+                fun dropLastPangramWords(num: Int) = IntermediateList(pangram.dropLast(num))
 
                 @JvmStatic
-                @JvmOverloads
-                fun joinToString(separator: CharSequence = ", ") = all.joinToString(separator)
+                fun dropPangramWordsWhile(predicate: StrPred) = IntermediateList(pangram.dropWhile(predicate))
+
+                @JvmStatic
+                fun pangram() = pangram.joinToString(" ")
             }
 
             object BoldScript {
@@ -589,7 +620,7 @@ class NaughtyStrings {
         internal val all = sequenceOf<String>()
                 .plus(UpsideDown.all)
                 .plus(Font.FullWidth.words)
-                .plus(Font.Bold.all)
+                .plus(Font.Bold.pangram)
                 .plus(Font.BoldScript.all)
                 .plus(Font.Fraktur.all)
                 .toList()
