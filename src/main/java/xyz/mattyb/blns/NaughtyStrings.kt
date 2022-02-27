@@ -2,6 +2,8 @@ package xyz.mattyb.blns
 
 typealias StrPred = (String) -> Boolean
 
+private const val PANGRAM_STR = "The quick brown fox jumps over the lazy dog"
+
 class NaughtyStrings {
 
     object Emoji {
@@ -425,6 +427,7 @@ class NaughtyStrings {
         }
 
         object Font {
+
             object FullWidth {
                 private val alphaNum = mapOf(
                         'A' to 'Ａ', 'a' to 'ａ', 'B' to 'Ｂ', 'b' to 'ｂ', 'C' to 'Ｃ',
@@ -451,17 +454,8 @@ class NaughtyStrings {
                     }
                 }.joinToString("")
 
-                internal val words = listOf(
-                        "Ｔｈｅ",
-                        "ｑｕｉｃｋ",
-                        "ｂｒｏｗｎ",
-                        "ｆｏｘ",
-                        "ｊｕｍｐｓ",
-                        "ｏｖｅｒ",
-                        "ｔｈｅ",
-                        "ｌａｚｙ",
-                        "ｄｏｇ"
-                )
+                internal val words = PANGRAM_STR.split(" ")
+                    .map { convert(it) }
 
                 @JvmStatic
                 fun toCharacterList(): List<String> = alphaNum.values.map { it.toString() }
@@ -533,17 +527,9 @@ class NaughtyStrings {
                     '6' to "\uD835\uDFD4", '7' to "\uD835\uDFD5", '8' to "\uD835\uDFD6",
                     '9' to "\uD835\uDFD7", '0' to "\uD835\uDFCE"
                 )
-                internal val pangram = listOf(
-                    convert("The"),
-                        "\uD835\uDC2A\uD835\uDC2E\uD835\uDC22\uD835\uDC1C\uD835\uDC24",
-                        "\uD835\uDC1B\uD835\uDC2B\uD835\uDC28\uD835\uDC30\uD835\uDC27",
-                        "\uD835\uDC1F\uD835\uDC28\uD835\uDC31",
-                        "\uD835\uDC23\uD835\uDC2E\uD835\uDC26\uD835\uDC29\uD835\uDC2C",
-                        "\uD835\uDC28\uD835\uDC2F\uD835\uDC1E\uD835\uDC2B",
-                        "\uD835\uDC2D\uD835\uDC21\uD835\uDC1E",
-                        "\uD835\uDC25\uD835\uDC1A\uD835\uDC33\uD835\uDC32",
-                        "\uD835\uDC1D\uD835\uDC28\uD835\uDC20"
-                )
+
+                internal val pangram = PANGRAM_STR.split(" ")
+                    .map { convert(it) }
 
                 @JvmStatic
                 fun convert(toConvert: String) = toConvert.map {
@@ -747,4 +733,5 @@ class NaughtyStrings {
         @JvmStatic
         fun dropWhile(strPred: StrPred) = IntermediateList(all.dropWhile(strPred))
     }
+
 }
