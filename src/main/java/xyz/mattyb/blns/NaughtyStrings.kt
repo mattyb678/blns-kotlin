@@ -511,30 +511,30 @@ class NaughtyStrings {
 
             object Bold {
                 private val alphaNum = mapOf(
-                        'A' to "\uD835\uDC00", 'a' to "\uD835\uDC1A", 'B' to "\uD835\uDC01",
-                        'b' to "\uD835\uDC1B", 'C' to "\uD835\uDC02", 'c' to "\uD835\uDC1C",
-                        'D' to "\uD835\uDC03", 'd' to "\uD835\uDC1D", 'E' to "\uD835\uDC04",
-                        'e' to "\uD835\uDC1E", 'F' to "\uD835\uDC05", 'f' to "\uD835\uDC1F",
-                        'G' to "\uD835\uDC06", 'g' to "\uD835\uDC20", 'H' to "\uD835\uDC07",
-                        'h' to "\uD835\uDC21", 'I' to "\uD835\uDC08", 'i' to "\uD835\uDC22",
-                        'J' to "\uD835\uDC09", 'j' to "\uD835\uDC23", 'K' to "\uD835\uDC0A",
-                        'k' to "\uD835\uDC24", 'L' to "\uD835\uDC0B", 'l' to "\uD835\uDC25",
-                        'M' to "\uD835\uDC0C", 'm' to "\uD835\uDC26", 'N' to "\uD835\uDC0D",
-                        'n' to "\uD835\uDC27", 'O' to "\uD835\uDC0E", 'o' to "\uD835\uDC28",
-                        'P' to "\uD835\uDC0F", 'p' to "\uD835\uDC29", 'Q' to "\uD835\uDC10",
-                        'q' to "\uD835\uDC2A", 'R' to "\uD835\uDC11", 'r' to "\uD835\uDC2B",
-                        'S' to "\uD835\uDC12", 's' to "\uD835\uDC2C", 'T' to "\uD835\uDC13",
-                        't' to "\uD835\uDC2D", 'U' to "\uD835\uDC14", 'u' to "\uD835\uDC2E",
-                        'V' to "\uD835\uDC15", 'v' to "\uD835\uDC2F", 'W' to "\uD835\uDC16",
-                        'w' to "\uD835\uDC30", 'X' to "\uD835\uDC17", 'x' to "\uD835\uDC31",
-                        'Y' to "\uD835\uDC18", 'y' to "\uD835\uDC32", 'Z' to "\uD835\uDC19",
-                        'z' to "\uD835\uDC33", '1' to "\uD835\uDFCF", '2' to "\uD835\uDFD0",
-                        '3' to "\uD835\uDFD1", '4' to "\uD835\uDFD2", '5' to "\uD835\uDFD3",
-                        '6' to "\uD835\uDFD4", '7' to "\uD835\uDFD5", '8' to "\uD835\uDFD6",
-                        '9' to "\uD835\uDFD7", '0' to "\uD835\uDFCE"
+                    'A' to "\uD835\uDC00", 'a' to "\uD835\uDC1A", 'B' to "\uD835\uDC01",
+                    'b' to "\uD835\uDC1B", 'C' to "\uD835\uDC02", 'c' to "\uD835\uDC1C",
+                    'D' to "\uD835\uDC03", 'd' to "\uD835\uDC1D", 'E' to "\uD835\uDC04",
+                    'e' to "\uD835\uDC1E", 'F' to "\uD835\uDC05", 'f' to "\uD835\uDC1F",
+                    'G' to "\uD835\uDC06", 'g' to "\uD835\uDC20", 'H' to "\uD835\uDC07",
+                    'h' to "\uD835\uDC21", 'I' to "\uD835\uDC08", 'i' to "\uD835\uDC22",
+                    'J' to "\uD835\uDC09", 'j' to "\uD835\uDC23", 'K' to "\uD835\uDC0A",
+                    'k' to "\uD835\uDC24", 'L' to "\uD835\uDC0B", 'l' to "\uD835\uDC25",
+                    'M' to "\uD835\uDC0C", 'm' to "\uD835\uDC26", 'N' to "\uD835\uDC0D",
+                    'n' to "\uD835\uDC27", 'O' to "\uD835\uDC0E", 'o' to "\uD835\uDC28",
+                    'P' to "\uD835\uDC0F", 'p' to "\uD835\uDC29", 'Q' to "\uD835\uDC10",
+                    'q' to "\uD835\uDC2A", 'R' to "\uD835\uDC11", 'r' to "\uD835\uDC2B",
+                    'S' to "\uD835\uDC12", 's' to "\uD835\uDC2C", 'T' to "\uD835\uDC13",
+                    't' to "\uD835\uDC2D", 'U' to "\uD835\uDC14", 'u' to "\uD835\uDC2E",
+                    'V' to "\uD835\uDC15", 'v' to "\uD835\uDC2F", 'W' to "\uD835\uDC16",
+                    'w' to "\uD835\uDC30", 'X' to "\uD835\uDC17", 'x' to "\uD835\uDC31",
+                    'Y' to "\uD835\uDC18", 'y' to "\uD835\uDC32", 'Z' to "\uD835\uDC19",
+                    'z' to "\uD835\uDC33", '1' to "\uD835\uDFCF", '2' to "\uD835\uDFD0",
+                    '3' to "\uD835\uDFD1", '4' to "\uD835\uDFD2", '5' to "\uD835\uDFD3",
+                    '6' to "\uD835\uDFD4", '7' to "\uD835\uDFD5", '8' to "\uD835\uDFD6",
+                    '9' to "\uD835\uDFD7", '0' to "\uD835\uDFCE"
                 )
                 internal val pangram = listOf(
-                        "\uD835\uDC13\uD835\uDC21\uD835\uDC1E",
+                    convert("The"),
                         "\uD835\uDC2A\uD835\uDC2E\uD835\uDC22\uD835\uDC1C\uD835\uDC24",
                         "\uD835\uDC1B\uD835\uDC2B\uD835\uDC28\uD835\uDC30\uD835\uDC27",
                         "\uD835\uDC1F\uD835\uDC28\uD835\uDC31",
@@ -558,10 +558,19 @@ class NaughtyStrings {
                 fun toPangramList(): List<String> = pangram
 
                 @JvmStatic
+                fun toCharacterList(): List<String> = alphaNum.values.toList()
+
+                @JvmStatic
                 fun randomWord(): String = pangram.random()
 
                 @JvmStatic
+                fun randomCharacter(): String = alphaNum.values.random()
+
+                @JvmStatic
                 fun takePangramWords(num: Int) = IntermediateList(pangram.take(num))
+
+                @JvmStatic
+                fun takeCharacters(num: Int) = IntermediateList(alphaNum.values.take(num))
 
                 @JvmStatic
                 fun dropPangramWords(num: Int) = IntermediateList(pangram.drop(num))
@@ -577,10 +586,41 @@ class NaughtyStrings {
             }
 
             object BoldScript {
+                private val alphaNum = mapOf(
+                    'A' to "\uD835\uDCD0", 'a' to "\uD835\uDCEA", 'B' to "\uD835\uDCD1",
+                    'b' to "\uD835\uDCEB", 'C' to "\uD835\uDCD2", 'c' to "\uD835\uDCEC",
+                    'D' to "\uD835\uDCD3", 'd' to "\uD835\uDCED", 'E' to "\uD835\uDCD4",
+                    'e' to "\uD835\uDCEE", 'F' to "\uD835\uDCD5", 'f' to "\uD835\uDCEF",
+                    'G' to "\uD835\uDCD6", 'g' to "\uD835\uDCF0", 'H' to "\uD835\uDCD7",
+                    'h' to "\uD835\uDCF1", 'I' to "\uD835\uDCD8", 'i' to "\uD835\uDCF2",
+                    'J' to "\uD835\uDCD9", 'j' to "\uD835\uDCF3", 'K' to "\uD835\uDCDA",
+                    'k' to "\uD835\uDCF4", 'L' to "\uD835\uDCDB", 'l' to "\uD835\uDCF5",
+                    'M' to "\uD835\uDCDC", 'm' to "\uD835\uDCF6", 'N' to "\uD835\uDCDD",
+                    'n' to "\uD835\uDCF7", 'O' to "\uD835\uDCDE", 'o' to "\uD835\uDCF8",
+                    'P' to "\uD835\uDCDF", 'p' to "\uD835\uDCF9", 'Q' to "\uD835\uDCE0",
+                    'q' to "\uD835\uDCFA", 'R' to "\uD835\uDCE1", 'r' to "\uD835\uDCFB",
+                    'S' to "\uD835\uDCE2", 's' to "\uD835\uDCFC", 'T' to "\uD835\uDCE3",
+                    't' to "\uD835\uDCFD", 'U' to "\uD835\uDCE4", 'u' to "\uD835\uDCFE",
+                    'V' to "\uD835\uDCE5", 'v' to "\uD835\uDCFF", 'W' to "\uD835\uDCE6",
+                    'w' to "\uD835\uDD00", 'X' to "\uD835\uDCE7", 'x' to "\uD835\uDD01",
+                    'Y' to "\uD835\uDCE8", 'y' to "\uD835\uDD02", 'Z' to "\uD835\uDCE9",
+                    'z' to "\uD835\uDD03"
+                )
+
                 internal val all = listOf(
-                        "\uD835\uDCE3\uD835\uDCF1\uD835\uDCEE",
+                    convert("The"),
                         "\uD835\uDCFA\uD835\uDCFE\uD835\uDCF2\uD835\uDCEC\uD835\uDCF4"
                 )
+
+                @JvmStatic
+                fun convert(toConvert: String) = toConvert.map {
+                    return@map if (it.isWhitespace()) {
+                        it
+                    } else {
+                        alphaNum[it] ?: "-"
+                    }
+                }.joinToString("")
+
             }
 
             object Fraktur {
