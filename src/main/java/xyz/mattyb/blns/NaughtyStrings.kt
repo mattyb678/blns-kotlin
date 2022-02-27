@@ -473,7 +473,9 @@ class NaughtyStrings {
                 fun takePangramWords(num: Int) = IntermediateList(words.take(num))
 
                 @JvmStatic
-                fun takeCharacters(num: Int) = IntermediateList(alphaNum.values.map { it.toString() })
+                fun takeCharacters(num: Int) = IntermediateList(alphaNum.values
+                    .take(num)
+                    .map { it.toString() })
 
                 @JvmStatic
                 fun dropPangramWords(num: Int) = IntermediateList(words.drop(num))
