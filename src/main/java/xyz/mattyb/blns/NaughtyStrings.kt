@@ -595,10 +595,8 @@ class NaughtyStrings {
                     'z' to "\uD835\uDD03"
                 )
 
-                internal val all = listOf(
-                    convert("The"),
-                        "\uD835\uDCFA\uD835\uDCFE\uD835\uDCF2\uD835\uDCEC\uD835\uDCF4"
-                )
+                internal val pangram = PANGRAM_STR.split(" ")
+                    .map { convert(it) }
 
                 @JvmStatic
                 fun convert(toConvert: String) = toConvert.map {
@@ -608,6 +606,12 @@ class NaughtyStrings {
                         alphaNum[it] ?: "-"
                     }
                 }.joinToString("")
+
+                @JvmStatic
+                fun toPangramList() = pangram
+
+                @JvmStatic
+                fun takePangramWords(num: Int) = IntermediateList(pangram.take(num))
 
             }
 
@@ -649,7 +653,7 @@ class NaughtyStrings {
                 .plus(UpsideDown.all)
                 .plus(Font.FullWidth.words)
                 .plus(Font.Bold.pangram)
-                .plus(Font.BoldScript.all)
+                .plus(Font.BoldScript.pangram)
                 .plus(Font.Fraktur.all)
                 .toList()
 
@@ -701,9 +705,21 @@ class NaughtyStrings {
 
     object Innocuous {
         internal val all = listOf(
-                "Scunthorpe General Hospital",
-                "Penistone Community Church",
-                "Lightwater Country Park"
+            "Scunthorpe General Hospital",
+            "Penistone Community Church",
+            "Lightwater Country Park",
+            "Jimmy Clitheroe",
+            "Horniman Museum",
+            "shitake mushrooms",
+            "RomansInSussex.co.uk",
+            "http://www.cum.qc.ca/",
+            "Craig Cockburn, Software Specialist",
+            "Linda Callahan",
+            "Dr. Herman I. Libshitz",
+            "magna cum laude",
+            "Super Bowl XXX",
+            "medieval erection of parapets",
+            "Dick Van Dyke"
         )
 
         @JvmStatic
